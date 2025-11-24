@@ -14,7 +14,7 @@ public class AssemblyFileParser {
         cleanAssemblyCode = new ArrayList<>();
         File assemblyFile = new File(fileName);
         if(!assemblyFile.exists() || assemblyFile.length() == 0){
-            throw new FileNotFoundException(fileName + "does not exist or is empty.");
+            throw new FileNotFoundException(fileName + " does not exist or is empty.");
         }
 
         fileReader = new Scanner(assemblyFile);
