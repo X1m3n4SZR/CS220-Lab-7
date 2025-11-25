@@ -5,32 +5,31 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class AssemblyFileParser {
-    private List<Instruction> parsedAssemblyInsturctions;
+    private List<Instruction> parsedAssemblyInstructions;
     private List<String> cleanAssemblyCode;
     private Scanner fileReader;
 
     // Constructor
     public AssemblyFileParser(String fileName) throws FileNotFoundException {
         cleanAssemblyCode = new ArrayList<>();
-        parsedAssemblyInsturctions = new ArrayList<>();
-        File assemlyFile = new File(fileName);
+        parsedAssemblyInstructions = new ArrayList<>();
+        File assemblyFile = new File(fileName);
 
         // if the file does not exist or if the file is empty
         // print an error message and exit the program
-        if (!assemlyFile.exists() || assemlyFile.length() == 0)
+        if (!assemblyFile.exists() || assemblyFile.length() == 0)
             throw new FileNotFoundException(fileName + " does not exist or is empty");
         
         // let's connect the fileReader Scanner to the fileName
-        fileReader = new Scanner(assemlyFile);
-
+        fileReader = new Scanner(assemblyFile);
         makeFirstPass(); //resolbed all labels
         makeSecondPass(); //resolve all variables and creates the A and C insctructions
 
         fileReader.close();
     }
 
-    public List<Instruction> getParsedAssemblyInsturctions() {
-        return  parsedAssemblyInsturctions;
+    public List<Instruction> getParsedAssemblyInstructions() {
+        return  parsedAssemblyInstructions;
     }
 
     // Method
@@ -92,9 +91,9 @@ public class AssemblyFileParser {
                     }
                 }
 
-                parsedAssemblyInsturctions.add(new AInstruction("@" + address));
+                parsedAssemblyInstructions.add(new AInstruction("@" + address));
             } else {
-                parsedAssemblyInsturctions.add(new CInstruction(code));
+                parsedAssemblyInstructions.add(new CInstruction(code));
             }
 
 
