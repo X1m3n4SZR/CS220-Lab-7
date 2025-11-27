@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
         try {
             AssemblyFileParser parser = new AssemblyFileParser(PROGRAM_NAME + ".asm");
-            //System.out.println("First pass completed successfully ==> cleaned Assembly code:");
             System.out.println(parser);
             MachineCodeWriter.writeToBinaryFile(PROGRAM_NAME + ".hack", parser.getParsedAssemblyInstructions());
         }
