@@ -1,7 +1,7 @@
 import java.io.FileNotFoundException;
 
 public class Main {
-    public static final String PROGRAM_NAME = "Rect";
+    public static final String PROGRAM_NAME = "Max";
     public static void main(String[] args) {
         try {
             AssemblyFileParser parser = new AssemblyFileParser(PROGRAM_NAME + ".asm");
